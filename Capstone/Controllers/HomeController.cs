@@ -78,5 +78,40 @@ namespace Capstone.Controllers
             Login(utente);
             return RedirectToAction("Index");
         }
+
+
+
+        public ActionResult Profilo()
+        {
+            Utenti utenti = db.Utenti.FirstOrDefault(u => u.Username == User.Identity.Name);
+            if(utenti == null)
+            {
+                return View("Index");
+            }
+            return View(utenti);
+        }
+
+        [HttpPost]
+        public ActionResult Profilo(Utenti aggiornaUtenti)
+        {
+            if(ModelState.IsValid)
+            {
+                Utenti utenti = db.Utenti.FirstOrDefault(u => u.Username == User.Identity.Name);
+
+                utenti.Username = aggiornaUtenti.Username;
+                utenti.Password = aggiornaUtenti.Password;
+                utenti.Nome = aggiornaUtenti.Nome;
+                utenti.CF = aggiornaUtenti.CF;
+                utenti.Telefono = aggiornaUtenti.Telefono;
+                utenti.Email = aggiornaUtenti.Email;
+
+                db.SaveChanges();
+
+                return RedirectToAction("Logout");
+
+            }
+            return View(aggiornaUtenti);
+        }
+
     }
 }
