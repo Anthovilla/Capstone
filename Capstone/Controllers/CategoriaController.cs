@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 
@@ -44,7 +45,7 @@ namespace Capstone.Controllers
         [HttpGet]
         public ActionResult EditCate(int id)
         {
-            return View(db.Utenti.Find(id));
+            return View(db.Categoria.Find(id));
         }
 
         [HttpPost]
@@ -58,5 +59,15 @@ namespace Capstone.Controllers
             }
             return View();
         }
+
+        public ActionResult Delete(int id)
+        {
+            Categoria Cate = db.Categoria.Find(id);
+            db.Categoria.Remove(Cate);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+       
     }
 }

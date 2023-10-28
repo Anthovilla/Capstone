@@ -18,10 +18,38 @@ namespace Capstone.Controllers
             return View(db.Evento.ToList());
         }
 
-        //[HttpGet]
-        //public ActionResult CreaEvento()
-        //{
-  
-        //}
+        [HttpGet]
+        public ActionResult CreaEvento()
+        {
+            ViewBag.Categoria = GetCategoria;
+            return View();
+
+        }
+
+
+
+
+
+
+
+        public List<SelectListItem> GetCategoria
+        {
+            
+           get
+                {
+
+                List<SelectListItem> Categoria = new List<SelectListItem>();
+                List<Categoria> ListCate = db.Categoria.ToList();
+
+                foreach (Categoria cate in ListCate)
+                {
+                    SelectListItem item = new SelectListItem { Text = cate.Nome, Value = cate.Id.ToString()};
+                    Categoria.Add(item);
+                }
+                return Categoria;
+            }
+
+
+        }
     }
 }
