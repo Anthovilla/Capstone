@@ -253,14 +253,18 @@
     <Content Include="Views\Utenti\Index.cshtml" />
     <Content Include="Views\Utenti\Edit.cshtml" />
     <Content Include="Views\Utenti\Details.cshtml" />
-    <Content Include="Views\Evento\Index.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Categoria\AddCate.cshtml" />
     <Content Include="Views\Categoria\Delete.cshtml" />
     <Content Include="Views\Categoria\EditCate.cshtml" />
+    <Content Include="Views\Evento\CreaEvento.cshtml" />
+    <Content Include="Views\Evento\Index.cshtml" />
+    <Content Include="Views\Evento\DettaglioEvento.cshtml" />
+    <Content Include="Views\Evento\ModificaEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Imgs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

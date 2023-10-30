@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Capstone.Models.DbModels.Utenti>
+﻿@model IEnumerable<Capstone.Models.DbModels.Evento>
 
 @{
     ViewBag.Title = "Index";
@@ -7,61 +7,81 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreaEvento")
 </p>
 <table class="table">
     <tr>
+
         <th>
-            @Html.DisplayNameFor(model => model.Username)
+          
         </th>
+
+
         <th>
-            @Html.DisplayNameFor(model => model.Password)
+            Categoria
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CF)
+            @Html.DisplayNameFor(model => model.Data)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Telefono)
+            @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ruolo)
+            @Html.DisplayNameFor(model => model.Costo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxParticipanti)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Disponibile)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+
         <td>
-            @Html.DisplayFor(modelItem => item.Username)
+            <img src="~/Content/Imgs/@item.Foto" alt="photo" class="foto-event" />
         </td>
+
+
         <td>
-            @Html.DisplayFor(modelItem => item.Password)
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CF)
+            @Html.DisplayFor(modelItem => item.Data)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
+            @Html.DisplayFor(modelItem => item.Location)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Ruolo)
+            @Html.DisplayFor(modelItem => item.Costo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.MaxParticipanti)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Disponibile)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "ModificaEvento", new { id = item.Id }) |
+            @Html.ActionLink("Details", "DettaglioEvento", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "EliminaEvento", new { id = item.Id })
         </td>
     </tr>
 }

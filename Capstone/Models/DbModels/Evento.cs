@@ -5,6 +5,7 @@ namespace Capstone.Models.DbModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("Evento")]
     public partial class Evento
@@ -36,6 +37,9 @@ namespace Capstone.Models.DbModels
 
         [StringLength(50)]
         public string Foto { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase FotoFile { get; set; }
 
         public bool Disponibile { get; set; }
 

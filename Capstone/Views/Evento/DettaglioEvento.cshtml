@@ -1,0 +1,89 @@
+﻿@model Capstone.Models.DbModels.Evento
+
+@{
+    ViewBag.Title = "DettaglioEvento";
+}
+
+<h2>DettaglioEvento</h2>
+
+<div>
+    <h4>Evento</h4>
+    <hr />
+    <div class="col-12 col-md-4">
+        <img src="~/Content/Imgs/@Model.Foto" class="w-100" />
+    </div>
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxParticipanti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxParticipanti)
+        </dd>
+
+     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disponibile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disponibile)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
