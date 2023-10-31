@@ -164,6 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\CommentiController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UtentiController.cs" />
@@ -261,10 +262,12 @@
     <Content Include="Views\Evento\Index.cshtml" />
     <Content Include="Views\Evento\DettaglioEvento.cshtml" />
     <Content Include="Views\Evento\ModificaEvento.cshtml" />
+    <Content Include="Views\Evento\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Imgs\" />
+    <Folder Include="Views\Commenti\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

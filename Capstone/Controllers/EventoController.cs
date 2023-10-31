@@ -94,6 +94,15 @@ namespace Capstone.Controllers
 
         }
 
+        public PartialViewResult Comment(int id)
+        {
+            ViewBag.Id = id;
+            return PartialView(db.Commenti.Where(c => c.FKEventi == id).OrderByDescending(o => o.Data));
+
+        }
+
+
+
 
         public ActionResult EliminaEvento(int id)
         {
