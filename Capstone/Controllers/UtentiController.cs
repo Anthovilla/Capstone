@@ -54,6 +54,9 @@ namespace Capstone.Controllers
 
         }
 
+
+      
+
         //public ActionResult Reset(int id)
         //{
         //    Utenti utenti = db.Utenti.Find(id);
