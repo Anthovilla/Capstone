@@ -267,11 +267,13 @@
     <Content Include="Views\Commenti\Index.cshtml" />
     <Content Include="Views\Commenti\Edit.cshtml" />
     <Content Include="Views\Commenti\Create.cshtml" />
+    <Content Include="Views\Recensioni\Index.cshtml" />
+    <Content Include="Views\Recensioni\Create.cshtml" />
+    <Content Include="Views\Evento\Recension.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Imgs\" />
-    <Folder Include="Views\Recensioni\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

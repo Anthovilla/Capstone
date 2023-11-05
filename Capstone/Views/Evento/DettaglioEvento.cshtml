@@ -71,7 +71,7 @@
             @Html.DisplayFor(model => model.MaxParticipanti)
         </dd>
 
-     
+
 
         <dt>
             @Html.DisplayNameFor(model => model.Disponibile)
@@ -91,3 +91,5 @@
 
 
 @{ Html.RenderAction("Comment", new { id = Model.Id });}
+
+@{ Html.RenderAction("Recension", new { id = Model.Id });}

@@ -101,6 +101,12 @@ namespace Capstone.Controllers
 
         }
 
+        public PartialViewResult Recension(int id)
+        {
+            ViewBag.Id = id;
+            return PartialView(db.Recensioni.Where(r => r.FKEventi == id).OrderByDescending(o => o.Rating));
+        }
+
 
 
 

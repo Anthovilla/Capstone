@@ -14,9 +14,43 @@ namespace Capstone.Controllers
         // GET: Recensioni
         public ActionResult Index()
         {
-
-
             return View(db.Recensioni.ToList());
         }
+
+        public ActionResult Create()
+        {
+            var utente = db.Utenti.ToList();
+            ViewBag.UtenteList = new SelectList(utente, "Id", "Nome");
+            var evento = db.Evento.ToList();
+            ViewBag.EventoList = new SelectList(evento, "Id", "Nome");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Recensioni r)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Recensioni.Add(r);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            ViewBag.UtenteList = new SelectList(db.Utenti.ToList(), "Id", "Nome");
+            ViewBag.EventoList = new SelectList(db.Evento.ToList(), "Id", "Nome");
+            return View();
+        }
+
+        public ActionResult ListUtenti()
+        {
+            return View(db.Utenti.ToList());
+        }
+
+
+        public ActionResult ListEvento()
+        {
+            return View(db.Evento.ToList());
+        }
+
     }
 }

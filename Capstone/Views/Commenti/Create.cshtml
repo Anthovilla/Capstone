@@ -30,10 +30,58 @@
 
 
 
+    @*<div class="form-group">
+        <label for="Nome" class="label-form"><strong>Evento</strong><span class="star"> *</span></label>
 
-    @Html.HiddenFor(model => model.FKEventi, htmlAttributes: new { @Value = @ViewBag.Id })
+        @Html.DropDownListFor(model => model.FKEventi, ViewBag.Eventos as SelectList, "Select a Evento", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FKEventi, "", new { @class = "text-danger" })
 
-    @Html.HiddenFor(model => model.FKUser, htmlAttributes: new { @Value = @ViewBag.Id })
+    </div>
+
+
+    <div class="form-group">
+            <label for="Nome" class="label-form"><strong>Utente</strong><span class="star"> *</span></label>
+
+            @Html.DropDownListFor(model => model.FKUser, ViewBag.Utenti as SelectList, "Select a User", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FKUser, "", new { @class = "text-danger" })
+
+        </div>*@
+
+
+
+
+
+    <div class="form-group">
+            <label for="Nome" class="label-form"><strong>Select a Utente</strong><span class="star"> *</span></label>
+            <select name="FKUser" class="form-control">
+
+                @foreach (var utente in ViewBag.UtenteList as SelectList)
+                {
+                    <option value="@utente.Value">@utente.Text</option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.FKUser, "", new { @class = "text-danger" })
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="Nome" class="label-form"><strong>Select a Evento</strong><span class="star"> *</span></label>
+            <select name="FKEventi" class="form-control">
+
+                @foreach (var evento in ViewBag.EventoList as SelectList)
+                {
+                    <option value="@evento.Value">@evento.Text</option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.FKEventi, "", new { @class = "text-danger" })
+
+        </div>
+
+
+    @*@Html.HiddenFor(model => model.FKEventi, htmlAttributes: new { @Value = @ViewBag.Id })
+
+    @Html.HiddenFor(model => model.FKUser, htmlAttributes: new { @Value = @ViewBag.Id })*@
 
 
     <div class="form-group">
