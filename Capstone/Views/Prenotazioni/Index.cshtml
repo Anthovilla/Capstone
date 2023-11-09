@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Capstone.Models.DbModels.Prenotazione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Evento.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utenti.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Partecipanti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var reserva in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => reserva.Evento.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reserva.Utenti.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reserva.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => reserva.Partecipanti)
+        </td>
+
+
+        <td>
+
+            @if (reserva.Status == "In attesa" )
+            {
+                <a href="@Url.Action("Index", new { id = reserva.Id, action = "confirm" })" class="btn btn-primary">Conferma</a>
+            }
+            else if (reserva.Status == "Confermata" )
+            {
+                <a href="@Url.Action("Index", new { id = reserva.Id, action = "attesa" })" class="btn btn-warning"> In attesa</a>
+            }
+
+         </td>
+
+
+<td>
+            @Html.DisplayFor(modelItem => reserva.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id= reserva.Id }) |
+            @Html.ActionLink("Details", "Details", new { id= reserva.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id= reserva.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+@section scripts{
+
+<script>
+
+    $(document).ready(function () {
+
+       
+
+
+    })
+
+    </script>
+
+
+    
+    }

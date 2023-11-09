@@ -1,0 +1,140 @@
+﻿@model Capstone.Models.DbModels.Evento
+
+@{
+    ViewBag.Title = "CercaEvento";
+}
+
+<h2>CercaEvento</h2>
+
+
+
+    
+@*<div class="form-horizontal">
+    <h4>Evento</h4>
+    <hr />
+
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="p-3">
+        <p id="not-found" class="text-danger d-none"> Nessun Evento trovato </p>
+    </div>*@
+
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="text" placeholder="Inserisci il nome " id="nomeEvento"/>
+        <button class="  btn btn-outline-primary" id="cerca"> Cerca</button>
+    </div>
+    <div id="risultati">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="p-3">
+        <p id="not-found" class="text-danger d-none"> Nessun Evento trovato</p>
+    </div>
+
+</div>
+@*</div>*@
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#cerca').click(function () {
+                var nomeEvento = $('#nomeEvento').val()
+                $.ajax({
+                    type: "Post",
+                    url: "./Evento/DettaglioEvento",
+                    data: { nome: nomeEvento },
+                    success: function (risultato)
+                    {
+                        if (risultato == 0)
+                            $("#not-found").removeClass("d-none")
+                        else
+                            window.open("./Evento/DettaglioEvento" + risultato)
+                    },
+
+
+                    //succes: function (data) {
+                    //    if (data) {
+                    //        var table = $("#risultati table tbody")
+                    //        table.empty();
+                    //        table.append('<tr><td>' + data.nome + '</td><td>');
+
+                    //    } else {
+                    //        $("#risultati").html("nessun risultato.")
+                    //    }
+                    }
+                })
+
+            })
+
+
+
+
+            //function cerca(event)
+            //{
+            //   $.ajax
+            //    ({
+            //        method: "Post",
+            //        url: "CercaEventoNome",
+            //        data:
+            //        {
+            //            nome: event
+            //        },
+
+            //        success: function (risultato)
+            //        {
+            //            if (risultato == 0)
+            //                $("#not-found").removeClass("d-none")
+            //            else
+            //                window.open("../Evento/DettaglioEvento" + risultato)
+            //        },
+            //        error: function (e) {
+            //            console.log(e)
+            //        }
+
+
+            //    })
+
+
+            //}
+
+            //$("#cerca").click(function () {
+            //    cerca($("#").val())
+            //})
+
+
+        });
+
+    </script>
+
+}

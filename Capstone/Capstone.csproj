@@ -167,6 +167,7 @@
     <Compile Include="Controllers\CommentiController.cs" />
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrenotazioniController.cs" />
     <Compile Include="Controllers\RecensioniController.cs" />
     <Compile Include="Controllers\UtentiController.cs" />
     <Compile Include="Global.asax.cs">
@@ -270,6 +271,10 @@
     <Content Include="Views\Recensioni\Index.cshtml" />
     <Content Include="Views\Recensioni\Create.cshtml" />
     <Content Include="Views\Evento\Recension.cshtml" />
+    <Content Include="Views\Prenotazioni\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\CercaEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

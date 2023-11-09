@@ -11,15 +11,16 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Evento.Nome)
-        </th>
+        </th>*@
+
         <th>
-            @Html.DisplayNameFor(model => model.Utenti.Username)
+           Username
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.Data)
+            Data
         </th>
         <th>
             Feedback
@@ -30,9 +31,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Evento.Nome)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Utenti.Username)
         </td>

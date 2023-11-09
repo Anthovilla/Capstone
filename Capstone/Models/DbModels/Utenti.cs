@@ -19,24 +19,28 @@ namespace Capstone.Models.DbModels
 
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Username Obbligatorio")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Inserire una Password")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nome obbligatorio")]
+        [Display(Name = "Nome")]
         [StringLength(150)]
         public string Nome { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Codice fiscale obbligatorio")]
         [StringLength(16)]
+        [Display(Name = "Codice Fiscale")]
         public string CF { get; set; }
 
         [StringLength(13)]
+        [Display(Name = "Numero di telefono")]
         public string Telefono { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Indirizzo Email")]
         public string Email { get; set; }
 
         [Required]

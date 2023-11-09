@@ -56,7 +56,7 @@ namespace Capstone.Controllers
         [HttpPost]
         public ActionResult Register([Bind(Exclude = "Ruolo")]Utenti utente)
         {
-            if(db.Utenti.Where(u => utente.Username == utente.Username).Count() > 0)
+            if(db.Utenti.Where(u => u.Username == utente.Username).Count() > 0)
             {
                 ViewBag.Errore = "Username già in uso";
                 return View();
@@ -64,20 +64,50 @@ namespace Capstone.Controllers
 
             db.Utenti.Add(new Utenti
             {
-                Username = utente.Username,
-                Password = utente.Password,
                 Nome = utente.Nome,
                 CF = utente.CF,
                 Telefono = utente.Telefono,
-                Email = utente.Email,              
+                Email = utente.Email,
+                Username = utente.Username,
+                Password = utente.Password,
                 Ruolo = "User"
             });
+           
 
             db.SaveChanges();
 
             Login(utente);
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult CercaEvento()
+        {
+            return View();
+        }
+
+        public JsonResult CercaEventoNome(string nome)
+        {
+            Evento evento = db.Evento.Where(e => e.Nome == nome).FirstOrDefault();
+
+            if (evento != null)
+            {
+                var resultato = new
+                {
+                    Nome = evento.Nome,
+
+                };
+
+                return Json(resultato, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+
+            }
+            
+        }
+
 
 
 
