@@ -71,7 +71,7 @@ namespace Capstone.Controllers
             {
                 if(evento.FotoFile != null && evento.FotoFile.ContentLength > 0)
                 {
-                    var path = Path.Combine(Server.MapPath("~/Content/Imgs"), evento.FotoFile.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Imgs/"), evento.FotoFile.FileName);
                     evento.FotoFile.SaveAs (path);
 
                     evento.Foto = evento.FotoFile.FileName;

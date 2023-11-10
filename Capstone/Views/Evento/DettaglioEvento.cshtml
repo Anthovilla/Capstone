@@ -4,92 +4,107 @@
     ViewBag.Title = "DettaglioEvento";
 }
 
-<h2>DettaglioEvento</h2>
 
-<div>
-    <h4>Evento</h4>
-    <hr />
-    <div class="col-12 col-md-4">
-        <img src="~/Content/Imgs/@Model.Foto" class="w-100" />
+
+<h1 class="m-3">
+    <i class="" aria-hidden="true"></i>
+    @Model.Nome
+</h1>
+
+<div class="p-3 px-5 table-container">
+    <div class="row align-items-center rounded" style="background-color: rgb(255, 255, 255, 0.92); ">
+        <div class="col-12 col-md-4">
+            <img src="~/Content/Imgs/@Model.Foto" class="w-100" />
+        </div>
+
+        <div class="col-12 col-md-8 ml-5 fs-5">
+
+            <div class="row row-cols-1 row-cols-2 mx-4 mb-4">
+
+                <div>
+                    <div class="fw-bold">
+                        Categoria
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Categoria.Nome)
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fw-bold">
+                        Nome
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Nome)
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="fw-bold">
+                        Data
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Data)
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fw-bold">
+                        Location
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Location)
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fw-bold">
+                        Descrizione
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Description)
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fw-bold">
+                        @Html.DisplayNameFor(model => model.Costo)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Costo)
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fw-bold">
+                        @Html.DisplayNameFor(model => model.MaxParticipanti)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.MaxParticipanti)
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fw-bold">
+                        @Html.DisplayNameFor(model => model.Disponibile)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Disponibile)
+                    </div>
+                </div>
+
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+
+            </div>
+
+        </div>
     </div>
-
-    <dl class="dl-horizontal">
-
-        <dt>
-            Categoria
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categoria.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Data)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Costo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Costo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxParticipanti)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxParticipanti)
-        </dd>
-
-
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Disponibile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Disponibile)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
+        @{ Html.RenderAction("Comment", new { id = Model.Id });}
 
-
-@{ Html.RenderAction("Comment", new { id = Model.Id });}
-
-@{ Html.RenderAction("Recension", new { id = Model.Id });}
+        @{ Html.RenderAction("Recension", new { id = Model.Id });}

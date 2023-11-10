@@ -7,7 +7,7 @@
 <h2>ModificaEvento</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("ModificaEvento", "Evento", FormMethod.Post, new {id = "formContent", enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -69,7 +69,7 @@
         <label for="FotoFile" class="label-form">@Html.Raw("<strong>Foto</strong>")</label>
         <input type="file" name="FotoFile" />
 
-        @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.FotoFile, "", new { @class = "text-danger" })
 
     </div>
 

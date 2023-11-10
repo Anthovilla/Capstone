@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Applicazione ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+<link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -26,7 +27,7 @@
 
                     <li>@Html.ActionLink("Recensioni", "Index", "Recensioni", new { area = "" }, new { @class = "nav-link" })</li>
 
-                    <li>@Html.ActionLink("Prenota Adesso!", "Index", "Prenotazioni", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Prenotazioni", "Index", "Prenotazioni", new { area = "" }, new { @class = "nav-link" })</li>
 
 
                     @if (User.IsInRole("Admin")) 
