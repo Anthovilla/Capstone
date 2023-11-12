@@ -105,6 +105,41 @@
     </div>
 </div>
 
-        @{ Html.RenderAction("Comment", new { id = Model.Id });}
+@{ Html.RenderAction("Prenotazion", new { id = Model.Id });}
 
-        @{ Html.RenderAction("Recension", new { id = Model.Id });}
+@{ Html.RenderAction("Comment", new { id = Model.Id });}
+
+@{ Html.RenderAction("Recension", new { id = Model.Id });}
+
+
+
+
+
+
+
+
+
+@section scripts {
+
+    <script type="text/javascript">
+
+   /* $(document).ready(function () {*/
+
+        $("#PrenotazioneBt").click(function () {           
+            $(".Animation1").slideToggle();
+        })
+
+        $("#CommentiBt").click(function () {
+            $(".Animation2").slideToggle();
+        })
+
+
+        $("#RecensioneBt").click(function () {
+            $(".Animation3").slideToggle();
+        })
+
+       
+   /* })*/
+
+    </script>
+}

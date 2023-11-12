@@ -1,60 +1,74 @@
 ﻿@model IEnumerable<Capstone.Models.DbModels.Commenti>
 
-@{
-    ViewBag.Title = "Comment";
-}
 
-<h2>Comment</h2>
+<h1 id="CommentiBt">
+    Commenti
+</h1>
 
-<p>
-    @Html.ActionLink("Commenta", "Create" , "Commenti", new {area = "", id = ViewBag.Id}, new {@class = "text-reset text-decoration-none" })
-</p>
-<table class="table">
-    <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Evento.Nome)
-        </th>*@
+<h4 id="CommentiBt" >
+    @Html.ActionLink("Commenta", "Create", "Commenti", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none" })
+</h4>
 
-        <th>
-           Username
-        </th>
 
-        <th>
-            Data
-        </th>
-        <th>
-            Feedback
-        </th>
+<div class="Animation2"  >
 
-        <th></th>
-    </tr>
+    @if (Model.Count() > 0)
+    {
 
-@foreach (var item in Model) {
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Evento.Nome)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Utenti.Username)
-        </td>
+        <table class="table">
+            <tr>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Evento.Nome)
+                    </th>*@
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
+                <th>
+                    Username
+                </th>
 
-        <td>
-            
+                <th>
+                    Data
+                </th>
+                <th>
+                    Feedback
+                </th>
 
-            <a href="@Url.Action("Edit", "Commenti", new {area = "", id = item.Id})">Edit</a>
+                <th></th>
+            </tr>
 
-         
-            <a href="@Url.Action("Delete", "Commenti", new {id = item.Id})">Delete</a>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Evento.Nome)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Utenti.Username)
+                    </td>
 
-        </td>
-    </tr>
-}
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
 
-</table>
+                    <td>
+
+
+                        <a href="@Url.Action("Edit", "Commenti", new {area = "", id = item.Id})">Edit</a>
+
+
+                        <a href="@Url.Action("Delete", "Commenti", new {id = item.Id})">Delete</a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p> Nessun Commento... </p>
+    }
+
+</div>

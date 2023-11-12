@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Capstone.Models.DbModels.Prenotazione>
+
+
+<h1 id="PrenotazioneBt" >
+    Prenotazione
+</h1>
+
+<h4 id="Prenota" >
+    @Html.ActionLink("Prenota", "Create", "Prenotazioni", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none" })
+</h4>
+
+
+<div class="Animation1"  >
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Evento.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utenti.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partecipanti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evento.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utenti.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Partecipanti)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { area = "", id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { area = "", id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { area = "", id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+else
+{
+    <p> Nessuna prenotazione... </p>
+}
+</div>
+
+@section scripts {
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#PrenotazioneBt").click(function () {
+            alert();
+            /*$(".Prenotazione").slideToggle();*/
+        })
+
+
+
+    })
+
+</script>
+    }

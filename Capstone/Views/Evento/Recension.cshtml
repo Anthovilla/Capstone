@@ -1,46 +1,64 @@
 ﻿@model IEnumerable<Capstone.Models.DbModels.Recensioni>
 
-<p>
+
+<h1 id="RecensioneBt"  >Recensioni</h1>
+
+
+<h4>
     @Html.ActionLink("FeedBack", "Create", "Recensioni", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Evento.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Utenti.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Text)
-        </th>
-        <th></th>
-    </tr>
+</h4>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Evento.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utenti.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
+<div class="Animation3">
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Evento.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Utenti.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Text)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Evento.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Utenti.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
 
 
-            <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
-        </td>
-    </tr>
-}
+                        <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+    }
+    else
+    {
+        <p> Nessuna Recensione... </p>
+    }
+
+</div>

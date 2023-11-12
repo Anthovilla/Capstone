@@ -94,6 +94,27 @@ namespace Capstone.Controllers
 
         }
 
+
+        public ActionResult EliminaEvento(int id)
+        {
+
+            Evento evento = db.Evento.Find(id);
+            if (evento != null)
+            {
+
+            }
+
+
+            db.Evento.Remove(evento);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+        //Inserimento Comment , Recensioni
         public PartialViewResult Comment(int id)
         {
             ViewBag.Id = id;
@@ -108,24 +129,12 @@ namespace Capstone.Controllers
         }
 
 
-
-
-        public ActionResult EliminaEvento(int id)
+        public PartialViewResult Prenotazion(int id)
         {
 
-            Evento evento = db.Evento.Find(id);
-            if (evento != null)
-            {
-
-            }
-
-
-            db.Evento.Remove(evento);
-            db.SaveChanges ();
-
-            return RedirectToAction("Index");
+            ViewBag.Id = id;
+            return PartialView(db.Prenotazione.Where(p => p.FKEventi == id).OrderByDescending(o => o.Data));
         }
-
 
 
 
