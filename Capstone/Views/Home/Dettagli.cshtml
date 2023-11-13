@@ -1,8 +1,9 @@
 ﻿@model Capstone.Models.DbModels.Evento
-
 @{
-    ViewBag.Title = "DettaglioEvento";
+    ViewBag.Title = "Dettagli";
 }
+
+<h2>Dettagli</h2>
 
 
 
@@ -105,19 +106,6 @@
     </div>
 </div>
 
-
-<div class="" >
-
-    <div>
-        @{ Html.RenderAction("Prenotazion", new { id = Model.Id });}
-    </div>
-    <div>
-        @{ Html.RenderAction("Comment", new { id = Model.Id });}
-    </div>
-    <div>
-        @{ Html.RenderAction("Recension", new { id = Model.Id });}
-    </div>
-</div>
 
 
 

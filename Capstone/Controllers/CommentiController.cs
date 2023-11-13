@@ -44,16 +44,18 @@ namespace Capstone.Controllers
         [HttpPost]
         public ActionResult Create(Commenti c)
         {
-            if (ModelState.IsValid)
-            {
-                db.Commenti.Add(c);
-                db.SaveChanges();
-                return RedirectToAction("DettaglioEvento","Evento", new {id = c.FKEventi});
-
-            }
             ViewBag.UtenteList = new SelectList(db.Utenti.ToList(), "Id", "Nome");
             ViewBag.EventoList = new SelectList(db.Evento.ToList(), "Id", "Nome");
-            return View();
+
+            var utente = User.Identity.Name;
+            var user = db.Utenti.Where(us => us.Username == utente).FirstOrDefault();
+            c.FKUser = user.Id;
+            c.Data = DateTime.Now;
+
+            db.Commenti.Add(c);
+                db.SaveChanges();
+                return RedirectToAction("DettaglioEvento","Evento", new {id = c.FKEventi});
+       
         }
 
         public ActionResult Edit(int id)

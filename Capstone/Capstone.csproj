@@ -278,6 +278,7 @@
     <Content Include="Views\Home\CercaEvento.cshtml" />
     <Content Include="Views\Evento\Prenotazion.cshtml" />
     <Content Include="Views\Prenotazioni\Create.cshtml" />
+    <Content Include="Views\Home\Dettagli.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

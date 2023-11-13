@@ -94,8 +94,11 @@ namespace Capstone.Controllers
             {
                 var resultato = new
                 {
+                    id = evento.Id,
+                    img = evento.Foto,
                     Nome = evento.Nome,
-
+                    Costo = evento.Costo,
+                    Descrizione = evento.Description,
                 };
 
                 return Json(resultato, JsonRequestBehavior.AllowGet);
@@ -106,6 +109,12 @@ namespace Capstone.Controllers
 
             }
             
+        }
+
+
+        public ActionResult Dettagli(int id)
+        {
+            return View(db.Evento.Find(id));
         }
 
 

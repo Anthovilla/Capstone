@@ -29,16 +29,17 @@ namespace Capstone.Controllers
         [HttpPost]
         public ActionResult Create(Recensioni r)
         {
-            if (ModelState.IsValid)
-            {
-                db.Recensioni.Add(r);
-                db.SaveChanges();
-                return RedirectToAction("DettaglioEvento", "Evento", new { id = r.FKEventi });
-
-            }
             ViewBag.UtenteList = new SelectList(db.Utenti.ToList(), "Id", "Nome");
             ViewBag.EventoList = new SelectList(db.Evento.ToList(), "Id", "Nome");
-            return View();
+
+            var utente = User.Identity.Name;
+            var user = db.Utenti.Where(us => us.Username == utente).FirstOrDefault();
+            r.FKUtenti = user.Id;
+
+            db.Recensioni.Add(r);
+                db.SaveChanges();
+                return RedirectToAction("DettaglioEvento", "Evento", new { id = r.FKEventi });
+         
         }
 
         public ActionResult Delete(int id)
