@@ -13,6 +13,94 @@ textarea {
 }
 
 
-img {
+/*img {
     width: 15rem;
+}*/
+
+.navbar {
+    background-color: #8872efb0
+}
+
+.cursive {
+    font-family: cursive;
+    color: #ffffff;
+}
+
+#cerca {
+    background-color: #50eef1;
+    border: none;
+    color: white;
+    padding: 12px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    border-radius: 5px 5px 5px 5px;
+}
+#bodyColor {
+    background-color: #d6deff;
+    background-image: url("Imgs/");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+/*
+#cardC {
+    width: 45rem;
+    background-color: #a88ad9c9;
+}*/
+
+.m-auto {
+    background-color: #50eef1;
+    border: none;
+    color: white;
+    padding: 12px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    border-radius: 5px 5px 5px 5px;
+}
+
+#listEvent {
+    color:blue;
+}
+.card-text {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*Pg Evento*/
+
+#cercaEvento {
+    color:red;
+}
+
+/*PG DettaglioEvento*/
+
+.comment {
+    margin: 0px 33px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.TextCommt {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardCommt {
+    margin: 12px 0px;
+}
+
+.dataCommt {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
 }

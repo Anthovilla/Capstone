@@ -16,52 +16,32 @@
     {
 
         <table class="table">
-            <tr>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.Evento.Nome)
-                    </th>*@
 
-                <th>
-                    Username
-                </th>
 
-                <th>
-                    Data
-                </th>
-                <th>
-                    Feedback
-                </th>
+        
 
-                <th></th>
-            </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.Evento.Nome)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Utenti.Username)
-                    </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Data)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Text)
-                    </td>
-
-                    <td>
-
-
+                <div class="card cardCommt" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="TextCommt">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Utenti.Username)</h5>
+                            <div class="dataCommt">
+                                @Html.DisplayFor(modelItem => item.Data)
+                            </div>
+                        </div>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Text)</p>
                         <a href="@Url.Action("Edit", "Commenti", new {area = "", id = item.Id})">Edit</a>
-
-
                         <a href="@Url.Action("Delete", "Commenti", new {id = item.Id})">Delete</a>
+                    </div>
+                </div>
 
-                    </td>
-                </tr>
+
+                
+
+
             }
 
         </table>

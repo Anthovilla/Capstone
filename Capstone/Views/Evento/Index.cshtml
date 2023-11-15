@@ -4,86 +4,40 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Eventi</h2>
-
-<p>
-    @Html.ActionLink("Create New", "CreaEvento")
-</p>
-<table class="table">
-    <tr>
-
-        <th>
-          
-        </th>
+<h2 class="d-flex my-2 my-lg-0 justify-content-center cursive"  >Eventi</h2>
 
 
-        <th>
-            Categoria
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Costo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxParticipanti)
-        </th>
+<div >
+    <h5 id="creaEvento" >@Html.ActionLink("Crea un Evento", "CreaEvento", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none color-white" })</h5>
+</div>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Disponibile)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-
-        <td>
-            <img src="~/Content/Imgs/@item.Foto" alt="photo" class="foto-event" />
-        </td>
+ 
 
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Costo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxParticipanti)
-        </td>
+    <div class="row row-cols-2 row-cols-md-4 justify-content-evenly">
+        @foreach (var item in Model)
+        {
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Disponibile)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "ModificaEvento", new { id = item.Id }) |
-            @Html.ActionLink("Details", "DettaglioEvento", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "EliminaEvento", new { id = item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+            <div class="p-2 px-3">
+                <div class="card">
+                    <img src="~/Content/Imgs/@item.Foto" alt="photo" class="card-img-top w-100" style=" height: 18rem; object-fit: cover;" />
+                    <div class="card-body">
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Categoria.Nome)</p>
+                    </div>
+                    <div class="textEvent">
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Nome)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Data)</p>
+                    </div>
+
+                    @*@id = "listEvent"*@
+
+                    @*<div id="listEvent">*@
+                    @Html.ActionLink("Dettaglio", "DettaglioEvento", new { id = item.Id }, new { @class = "btn btn-secondary m-auto" })
+                    @*</div>*@
+                </div>
+            </div>
+
+        }
+    </div>
+

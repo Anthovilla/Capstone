@@ -94,10 +94,13 @@
                     </div>
                 </div>
 
-                <p>
+                @*<p>
                     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
                     @Html.ActionLink("Back to List", "Index")
-                </p>
+                </p>*@
+
+
+
 
             </div>
 
@@ -106,11 +109,11 @@
 </div>
 
 
-<div class="" >
+<div class="comment" >
 
-    <div>
+    @*<div>
         @{ Html.RenderAction("Prenotazion", new { id = Model.Id });}
-    </div>
+    </div>*@
     <div>
         @{ Html.RenderAction("Comment", new { id = Model.Id });}
     </div>
