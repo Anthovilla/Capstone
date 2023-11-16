@@ -5,7 +5,7 @@
     Commenti
 </h1>
 
-<h4 id="CommentiBt" >
+<h4 id="CommentaBt" >
     @Html.ActionLink("Commenta", "Create", "Commenti", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none" })
 </h4>
 
@@ -17,32 +17,34 @@
 
         <table class="table">
 
+            <div class="row">
 
-        
+                @foreach (var item in Model)
+                {
 
 
-            @foreach (var item in Model)
-            {
+                    <div class="card cardCommt" style="width: 18rem;">
+                        <div class="card-body">
+                            <div class="TextCommt">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Utenti.Username)</h5>
+                                <div class="dataCommt">
+                                    @Html.DisplayFor(modelItem => item.Data)
+                                </div>
+                            </div>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Text)</p>
 
-                <div class="card cardCommt" style="width: 18rem;">
-                    <div class="card-body">
-                        <div class="TextCommt">
-                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Utenti.Username)</h5>
-                            <div class="dataCommt">
-                                @Html.DisplayFor(modelItem => item.Data)
+                            <div>
+                                <a href="@Url.Action("Edit", "Commenti", new {area = "", id = item.Id})">Edit</a>
+                                <a href="@Url.Action("Delete", "Commenti", new {id = item.Id})">Delete</a>
                             </div>
                         </div>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Text)</p>
-                        <a href="@Url.Action("Edit", "Commenti", new {area = "", id = item.Id})">Edit</a>
-                        <a href="@Url.Action("Delete", "Commenti", new {id = item.Id})">Delete</a>
                     </div>
+
+
+
+
+                }
                 </div>
-
-
-                
-
-
-            }
 
         </table>
     }

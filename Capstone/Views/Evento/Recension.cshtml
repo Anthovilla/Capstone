@@ -4,7 +4,7 @@
 <h1 id="RecensioneBt"  >Recensioni</h1>
 
 
-<h4>
+<h4 id="CommentaBt">
     @Html.ActionLink("FeedBack", "Create", "Recensioni", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none" })
 </h4>
 
@@ -14,7 +14,9 @@
     {
 
         <table class="table">
-            <tr>
+
+
+            @*<tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Evento.Nome)
                 </th>
@@ -28,31 +30,58 @@
                     @Html.DisplayNameFor(model => model.Text)
                 </th>
                 <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Evento.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Utenti.Username)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Rating)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Text)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
+            </tr>*@
 
 
-                        <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
-                    </td>
-                </tr>
-            }
+            <div class="row" >
+
+
+                @foreach (var item in Model)
+                {
+
+
+
+                    <div class="card cardCommt" style="width: 18rem;">
+                        <div class="card-body">
+                            <div class="TextCommt">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Utenti.Username)</h5>
+                                <div class="dataCommt">
+                                    @Html.DisplayFor(modelItem => item.Rating)
+                                </div>
+                            </div>
+                            <p class="card-text"> @Html.DisplayFor(modelItem => item.Text)</p>
+                            <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
+                            <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
+                        </div>
+                    </div>
+
+
+
+                    @*<tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evento.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utenti.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
+
+
+                    <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
+                </td>
+            </tr>*@
+
+
+
+                }
+            </div>
 
         </table>
     }

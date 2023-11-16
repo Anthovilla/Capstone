@@ -94,11 +94,14 @@
                     </div>
                 </div>
 
+
+
+
+
                 @*<p>
                     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>*@
-
 
 
 
@@ -109,19 +112,20 @@
 </div>
 
 
-<div class="comment" >
+<div class="CommRecen" >
+    <div class="row">
 
-    @*<div>
-        @{ Html.RenderAction("Prenotazion", new { id = Model.Id });}
-    </div>*@
-    <div>
-        @{ Html.RenderAction("Comment", new { id = Model.Id });}
-    </div>
-    <div>
-        @{ Html.RenderAction("Recension", new { id = Model.Id });}
+        @*<div>
+                @{ Html.RenderAction("Prenotazion", new { id = Model.Id });}
+            </div>*@
+        <div class="col-12 col-sm-12 col-md-6">
+            @{ Html.RenderAction("Comment", new { id = Model.Id });}
+        </div>
+        <div class="col-12 col-sm-12 col-md-6">
+            @{ Html.RenderAction("Recension", new { id = Model.Id });}
+        </div>
     </div>
 </div>
-
 
 
 
