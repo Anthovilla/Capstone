@@ -7,10 +7,11 @@
 <h2 class="d-flex my-2 my-lg-0 justify-content-center cursive"  >Eventi</h2>
 
 
+@if (User.IsInRole("Admin")) { 
 <div >
     <h5 id="creaEvento" >@Html.ActionLink("Crea un Evento", "CreaEvento", new { area = "", id = ViewBag.Id }, new { @class = "text-reset text-decoration-none color-white" })</h5>
 </div>
-
+}
  
 
 
