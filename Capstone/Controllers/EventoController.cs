@@ -102,11 +102,24 @@ namespace Capstone.Controllers
             if (evento != null)
             {
 
+                // Trova e rimuove recensioni associate all'evento
+                var recensioniAssociate = db.Recensioni.Where(r => r.FKEventi == id);
+                db.Recensioni.RemoveRange(recensioniAssociate);
+
+                // Trova e rimuove commenti associati all'evento
+                var commentiAssociati = db.Commenti.Where(c => c.FKEventi == id);
+                db.Commenti.RemoveRange(commentiAssociati);
+
+                // Trova e rimuovi prenotazioni associate all'evento
+                var prenotazioniAssociate = db.Prenotazione.Where(p => p.FKEventi == id);
+                db.Prenotazione.RemoveRange(prenotazioniAssociate);
+
+                // Ora rimuove l'evento senza violare i vincoli di chiave esterna
+                db.Evento.Remove(evento);
+                db.SaveChanges();
+
+
             }
-
-
-            db.Evento.Remove(evento);
-            db.SaveChanges();
 
             return RedirectToAction("Index");
         }

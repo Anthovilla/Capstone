@@ -104,8 +104,16 @@ textarea {
     color: red;
 }
 
-/*PG DettaglioEvento*/
+.bi-trash3 {
+    color: red;
+}
 
+
+
+
+
+
+/*PG DettaglioEvento*/
 .comment {
     margin: 0px 33px;
     display: flex;

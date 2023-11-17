@@ -33,9 +33,21 @@
 
                     @*@id = "listEvent"*@
 
-                    @*<div id="listEvent">*@
+
+
+
+                    @*@Html.ActionLink("Modifica", "ModificaEvento", new { id = item.Id }, new { @class = "btn btn-secondary m-auto" })*@
+
                     @Html.ActionLink("Dettaglio", "DettaglioEvento", new { id = item.Id }, new { @class = "btn btn-secondary m-auto" })
-                    @*</div>*@
+
+                <div class="d-flex justify-content-around my-2">
+
+                    <a href="@Url.Action("ModificaEvento", new { id = item.Id })"><i class="bi bi-pencil-square"></i></a>
+
+                    <a href="@Url.Action("EliminaEvento", new { id = item.Id })"><i class="bi bi-trash3"></i></a>
+
+                </div>
+
                 </div>
             </div>
 

@@ -41,7 +41,7 @@ namespace Capstone.Controllers
             {
                 Session["IdUtente"] = utente.Id;
                 FormsAuthentication.SetAuthCookie(utente.Username, true);
-                return RedirectToAction("Index"); 
+                return RedirectToAction("CercaEvento"); 
             }
             return View();     
         }
@@ -49,7 +49,7 @@ namespace Capstone.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index");
+            return RedirectToAction("CercaEvento");
         }
 
         public ActionResult Register()
@@ -81,7 +81,7 @@ namespace Capstone.Controllers
             db.SaveChanges();
 
             Login(utente);
-            return RedirectToAction("Index");
+            return RedirectToAction("CercaEvento");
         }
 
 
