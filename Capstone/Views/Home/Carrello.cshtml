@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Carrello";
+}
+
+<h2>Carrello</h2>
+
+
+
+<h2>Carrello</h2>
+
+<table class="table table-success table-striped-columns">
+    <thead>
+        <tr>
+
+            <th scope="col">Nome</th>
+            <th scope="col">Costo</th>
+
+        </tr>
+    </thead>
+    <tbody id="carrello">
+    </tbody>
+
+</table>
+
+<p id="totaleCarrello">Totale: <span id="totale"></span></p>
+<button id="Concludi">Concludi ordine </button>
+
+
+
+@section Scripts {
+
+    <script>
+
+        let carrello = JSON.parse(sessionStorage.getItem("Carrello")) || []
+
+        if (carrello.length > 0) {
+
+            let carrelloBody = document.getElementById("carrello")
+
+            let totaleP = document.getElementById("totale")
+            let totale = 0
+
+            carrello.forEach(function (prodotto) {
+
+                let row = carrelloBody.insertRow()
+                let Nome = row.insertCell(0)
+                let Costo = row.insertCell(1)
+
+                let prezzoNumerico = parseFloat(prodotto.costoProdotto);
+                totale += prezzoNumerico;
+
+
+
+                    Nome.innerHTML = prodotto.nomeProdotto
+                Costo.innerHTML = prodotto.costoProdotto
+
+
+                totaleP.innerHTML = totale + "€"
+
+
+
+                console.log(totale)
+
+            })
+
+            document.getElementById("Concludi").addEventListener("click", function () {
+              
+                    // Svuota il sessionStorage
+                sessionStorage.removeItem("Carrello");
+
+                location.reload()
+                alert("Ordine concluso")
+
+                })
+            
+
+        }
+
+
+    </script>
+
+
+}

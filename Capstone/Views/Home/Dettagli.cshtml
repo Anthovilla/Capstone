@@ -27,7 +27,7 @@
                         Categoria
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Categoria.Nome)
+                       <p id="Categoria" >@Model.Categoria.Nome</p>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
                         Nome
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Nome)
+                        <p id="Nome">@Model.Nome</p>
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                         Data
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Data)
+                        <p id="Data">@Model.Data</p>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
                         Location
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Location)
+                        <p id="Location">@Model.Location</p>
                     </div>
                 </div>
 
@@ -64,16 +64,17 @@
                         Descrizione
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Description)
+                        <p id="Descrizione">@Model.Description</p>
                     </div>
                 </div>
 
                 <div>
                     <div class="fw-bold">
-                        @Html.DisplayNameFor(model => model.Costo)
+                        Costo
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Costo)
+                        <p id="Costo">@Model.Costo</p>
+
                     </div>
                 </div>
 
@@ -82,7 +83,8 @@
                         @Html.DisplayNameFor(model => model.MaxParticipanti)
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.MaxParticipanti)
+                        <p id="MaxParticipanti">@Model.MaxParticipanti</p>
+
                     </div>
                 </div>
 
@@ -91,34 +93,23 @@
                         @Html.DisplayNameFor(model => model.Disponibile)
                     </div>
                     <div>
-                        @Html.DisplayFor(model => model.Disponibile)
+                        <p id="Disponibile">@Model.Disponibile</p>
                     </div>
                 </div>
 
-                <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                    @Html.ActionLink("Back to List", "Index")
-                </p>
-
             </div>
+
+            <button id="aggCarrello"  class="btn btn-outline-primary">Prenota</button>
 
         </div>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
 @section scripts {
 
     <script type="text/javascript">
 
-        /* $(document).ready(function () {*/
+        
 
         $("#PrenotazioneBt").click(function () {
             $(".Animation1").slideToggle();
@@ -134,7 +125,32 @@
         })
 
 
-        /* })*/
+        $(document).ready(function () {
+            $("#aggCarrello").click(function () {
+
+                let nome = $("#Nome").text();
+                let costo = $("#Costo").text();
+
+                let carrello = JSON.parse(sessionStorage.getItem("Carrello")) || []
+
+                let prodotto = {
+                    nomeProdotto: nome,
+                    costoProdotto: costo
+                }
+
+                carrello.push(prodotto)
+                sessionStorage.setItem("Carrello", JSON.stringify(carrello));
+
+                window.location.href = '../Carrello';
+
+                console.log(JSON.parse(sessionStorage.getItem("Carrello")))
+            })
+
+
+
+        })
+
+       
 
     </script>
 }

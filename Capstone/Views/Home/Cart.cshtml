@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+}
+
+
+
+<h2>Carrello</h2>
+
+<table class="table table-success table-striped-columns">
+    <thead>
+        <tr>
+
+            <th scope="col">Nome</th>
+            <th scope="col">Costo</th>
+
+        </tr>
+    </thead>
+    <tbody id="carrello">
+    </tbody>
+
+
+</table>
+
+@section Scripts {
+
+    <script>
+
+        let carrello = JSON.parse(sessionStorage.getItem("Carrello")) || []
+
+        if (carrello.length > 0) {
+
+            let carrelloBody = document.getElementById("carrello")
+
+            carrelloBody.foreach(function (prodotto) {
+
+                let row = carreloBody.insertRow()
+                let Nome = row.insertCell(0)
+                let Costo = row.insertCell(1)
+
+                Nome.innerHTML = prodotto.nomeProdotto
+                Costo.innerHTML = prodotto.costoProdotto
+
+
+            })
+
+        }
+
+
+    </script>
+
+
+}
+

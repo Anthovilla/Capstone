@@ -279,6 +279,8 @@
     <Content Include="Views\Evento\Prenotazion.cshtml" />
     <Content Include="Views\Prenotazioni\Create.cshtml" />
     <Content Include="Views\Home\Dettagli.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Home\Carrello.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

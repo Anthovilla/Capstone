@@ -19,6 +19,10 @@ namespace Capstone.Controllers
             return View();
         }
 
+        public ActionResult Carrello() {
+            
+            return View();
+        }
 
 
 
