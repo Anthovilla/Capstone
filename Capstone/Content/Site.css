@@ -44,6 +44,7 @@ textarea {
 }
 
 .cursive {
+    font-size: 3rem;
     font-family: cursive;
     color: #ffffff;
 }
@@ -97,9 +98,25 @@ textarea {
     justify-content: center;
 }
 
+.textEvent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.categoriaCard {
+    font-size: 14px;
+}
+
+.TitoloCard {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+}
+
 
 /*Pg Evento*/
-
 #cercaEvento {
     color: red;
 }
@@ -107,6 +124,8 @@ textarea {
 .bi-trash3 {
     color: red;
 }
+
+
 
 
 

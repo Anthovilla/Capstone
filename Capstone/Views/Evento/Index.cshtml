@@ -24,11 +24,12 @@
                 <div class="card">
                     <img src="~/Content/Imgs/@item.Foto" alt="photo" class="card-img-top w-100" style=" height: 18rem; object-fit: cover;" />
                     <div class="card-body">
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Categoria.Nome)</p>
+                        <div class="TitoloCard">@Html.DisplayFor(modelItem => item.Nome)</div>
+                        
                     </div>
                     <div class="textEvent">
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Nome)</p>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Data)</p>
+                        <div class="categoriaCard">@Html.DisplayFor(modelItem => item.Categoria.Nome)</div>
+                        <div class="dataCommt">@Html.DisplayFor(modelItem => item.Data)</div>
                     </div>
 
                     @*@id = "listEvent"*@
