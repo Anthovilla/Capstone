@@ -29,7 +29,7 @@ textarea {
     background-attachment: fixed;
     background-size: cover;
     background-position: top;
-    background-image: url();
+    background-image: url("/Content/Imgs/mini antho.jpg");
     width: 100%;
     height: 100%;
     font-family: Arial, Helvetica;
@@ -43,11 +43,11 @@ textarea {
     border-bottom: 6px solid #fa00d9;
 }
 
-.cursive {
+/*.cursive {
     font-size: 3rem;
     font-family: cursive;
     color: #ffffff;
-}
+}*/
 
 #nomeEvento {
     max-width: 280px;
@@ -68,12 +68,13 @@ textarea {
     border-radius: 5px 5px 5px 5px;
 }
 
+#aggCarrello {
+    display: flex;
+    justify-content: center;
+}
 
-/*
-#cardC {
-    width: 45rem;
-    background-color: #a88ad9c9;
-}*/
+
+
 
 .m-auto {
     background-color: #50eef1;
@@ -115,9 +116,35 @@ textarea {
     justify-content: center;
 }
 
+.card {
+    background-color: #0000008c;
+    color: white;
+}
+
+/*Card Dettaglio*/
+.ContainerTextDettagli {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.TextDettagli {
+    border-bottom: 1px solid #00f7f7;
+    font-size: 17px;
+}
+
+.colorDettagli {
+    background-color: #0000008c;
+    color: white;
+}
+
+
+
+
+
 
 /*Pg Evento*/
-#cercaEvento {
+.creaEvento {
     color: red;
 }
 
@@ -125,14 +152,39 @@ textarea {
     color: red;
 }
 
+#cardEvent:hover {
+    /* box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3);*/
+    /*box-shadow: -4px 5px 20px 0px rgb(0 209 255), 3px 1px 20px 0px rgb(250 0 217);*/
+    box-shadow: -5px 6px 20px 0px rgb(0 209 255), 2px -3px 20px 0px rgb(250 0 217);
+}
 
+#cardEvent:hover {
+    content: ":hover";
+}
 
-
-
+.BtnDettaglio {
+    display: flex;
+    margin: 12px 12px;
+}
 
 
 
 /*PG DettaglioEvento*/
+#ContainerNomeDettaglio {
+    margin: 12px 38px;
+}
+
+
+.NomeDettaglio {
+    width: auto;
+    /*background-color: white;*/
+    display: flex;
+    justify-content: center;
+    border-radius: 32px;
+    color: white;
+    font-family: fangsong;
+}
+
 .comment {
     margin: 0px 33px;
     display: flex;
@@ -158,11 +210,13 @@ textarea {
     margin: 0px 35px;
 }
 
-#CommentiBt {
+.CommentiBt {
     display: flex;
     justify-content: center;
-    background-color: white;
     border-radius: 23px;
+    background-color: #0000008c;
+    color: white;
+    font-family: fangsong;
 }
 
 #CommentaBt {
@@ -179,11 +233,13 @@ textarea {
     border-radius: 5px 5px 5px 5px;
 }
 
-#RecensioneBt {
+.RecensioneBt {
     display: flex;
     justify-content: center;
-    background-color: white;
     border-radius: 23px;
+    background-color: #0000008c;
+    color: white;
+    font-family: fangsong;
 }
 
 /*PG Login*/
@@ -192,7 +248,7 @@ textarea {
     height: auto;
     background: #1A2226;
     text-align: center;
-    box-shadow: -18px 9px 20px 20px rgb(17 169 193 / 24%), 16px -10px 20px 0px rgb(107 8 89 / 82%);
+    box-shadow: -4px 5px 20px 0px rgb(0 209 255), 3px 1px 20px 0px rgb(250 0 217);
 }
 
 .login-key {

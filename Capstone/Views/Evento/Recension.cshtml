@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Capstone.Models.DbModels.Recensioni>
 
 
-<h1 id="RecensioneBt"  >Recensioni</h1>
+<h1 id="cardEvent" class="RecensioneBt"  >Recensioni</h1>
 
 
 <h4 id="CommentaBt">
@@ -16,24 +16,7 @@
         <table class="table">
 
 
-            @*<tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Evento.Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Utenti.Username)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Rating)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Text)
-                </th>
-                <th></th>
-            </tr>*@
-
-
-            <div class="row" >
+            <div class="row">
 
 
                 @foreach (var item in Model)
@@ -41,7 +24,7 @@
 
 
 
-                    <div class="card cardCommt" style="width: 18rem;">
+                    <div id="cardEvent" class="card cardCommt" style="width: 18rem;">
                         <div class="card-body">
                             <div class="TextCommt">
                                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Utenti.Username)</h5>
@@ -50,34 +33,22 @@
                                 </div>
                             </div>
                             <p class="card-text"> @Html.DisplayFor(modelItem => item.Text)</p>
-                            <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
-                            <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
+
+
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="d-flex justify-content-around my-2">
+
+                                    <a href="@Url.Action("Edit", new { id = item.Id })"><i class="bi bi-pencil-square"></i></a>
+
+                                    <a href="@Url.Action("Delete", new { id = item.Id })"><i class="bi bi-trash3"></i></a>
+
+                                </div>
+                            }
+
                         </div>
                     </div>
-
-
-
-                    @*<tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Evento.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Utenti.Username)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Text)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Recensioni", new {area = "", id = item.Id})">Edit</a>
-
-
-                    <a href="@Url.Action("Delete", "Recensioni", new {id = item.Id})">Delete</a>
-                </td>
-            </tr>*@
-
 
 
                 }
