@@ -30,63 +30,122 @@
 
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<section class="content ">
+    <div  id="cardEvent" class="left-content ">
+        <div class="activities">
+            <h1>Popular Events</h1>
+            <div class="activity-container ">
+                <div class="image-container img-one">
+                    <img src="https://www.theransomnote.com/wp-content/uploads/2021/08/038ef4ea-16b6-4005-8232-e44e70df6293-1066x800.webp" alt="sziget " />
+                    <div class="overlay">
+                        <h3>Sziget </h3>
+                    </div>
+                </div>
 
-@section Scripts {
-    @*@Scripts.Render("~/bundles/jqueryval")*@
+                <div class="image-container img-two">
+                    <img src="https://www.moz.de/imgs/38/1/0/8/1/4/1/1/4/1/tok_7ffc185314bd82e447c003be66402588/w575_h323_x750_y405_kul-221207-loll.JPG-ff3a62d21e61d347.jpeg" alt="lollapalooza" />
+                    <div class="overlay">
+                        <h3>Lolla</h3>
+                    </div>
+                </div>
 
-    <script>
+                <div class="image-container img-three">
+                    <img src="https://static01.nyt.com/images/2020/03/10/arts/10virus-coachella1/10virus-coachella1-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="coachella" />
+                    <div class="overlay">
+                        <h3>Coachella</h3>
+                    </div>
+                </div>
 
-        $(document).ready(function () {
-          
+                <div class="image-container img-four">
+                    <img src="https://image-tc.galaxy.tf/wijpeg-1yow0e716ncjzc7eaf0jsyaiu/file.jpg" alt="Vive Latino" />
+                    <div class="overlay">
+                        <h3>Vive Latino</h3>
+                    </div>
+                </div>
 
-            $('#cerca').click(function () {
-                var nomeEvento = $('#nomeEvento').val()
-               
+                <div class="image-container img-five">
+                    <img src="https://themusicessentials.com/wp-content/uploads/2017/12/miami-live-sets-og-1.jpg" alt="ultra" />
+                    <div class="overlay">
+                        <h3>Ultra</h3>
+                    </div>
+                </div>
 
-                $.ajax({
-                    type: "Post",
-                    url: "/Home/CercaEventoNome",
-                    data: { nome: nomeEvento },
-                    success: function (risultato)
-                    {
-                        $('#risultati').empty()
-
-                        if (risultato == 0)
-                            $("#not-found").removeClass("d-none")
-                        else {
+                <div class="image-container img-six">
+                    <img src="https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2023-1.jpg" alt="tomorrowland" />
+                    <div class="overlay">
+                        <h3>Tomorrowland</h3>
+                    </div>
+                </div>
 
 
-                            let card =
-                                "<div class='p-2 px-3' style='display: flex;justify-content: center;margin-top: 2rem;' >" +
-                                "<div id='cardEvent'  class='card' style='width: 45rem'>" +
-                                "<img src ='/Content/Imgs/" + risultato.img + "' class='card-img-top w-100' alt = '..'>" +
-                                "<div id='cardB' class='card-body' style='display: flex; flex-direction: column; align-items: center;'> " +
-                                "<h5 class='card-title'>" + risultato.Nome + "</h5> " +
-                                "<p class='card-text'>" + risultato.Descrizione + "</p>" +
-                                "<p class='card-text'>€ " + risultato.Costo + "</p>" +
-                                "<a href='Home/Dettagli/" + risultato.id + "' class='btn btn-secondary m-auto'>Dettaglio</a> " +
-                                "</div>" +
-                                "</div>" +
-                                "</div>"
+            </div>
+        </div>
+    </div>
+</section>
 
-                            $('#risultati').append(card)
 
-                            console.log(risultato)
-                        }
-                    },
-                    error: function (e) {
-                        console.log(e)
-                    }
 
-                })
 
-            })
 
-         })
 
-    </script>
 
-}
+
+                @*<div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>*@
+
+                @section Scripts {
+                    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+                    <script>
+
+                        $(document).ready(function () {
+
+
+                            $('#cerca').click(function () {
+                                var nomeEvento = $('#nomeEvento').val()
+
+
+                                $.ajax({
+                                    type: "Post",
+                                    url: "/Home/CercaEventoNome",
+                                    data: { nome: nomeEvento },
+                                    success: function (risultato) {
+                                        $('#risultati').empty()
+
+                                        if (risultato == 0)
+                                            $("#not-found").removeClass("d-none")
+                                        else {
+
+
+                                            let card =
+                                                "<div class='p-2 px-3' style='display: flex;justify-content: center;margin-top: 2rem;' >" +
+                                                "<div id='cardEvent'  class='card' style='width: 45rem'>" +
+                                                "<img src ='/Content/Imgs/" + risultato.img + "' class='card-img-top w-100' alt = '..'>" +
+                                                "<div id='cardB' class='card-body' style='display: flex; flex-direction: column; align-items: center;'> " +
+                                                "<h5 class='card-title'>" + risultato.Nome + "</h5> " +
+                                                "<p class='card-text'>" + risultato.Descrizione + "</p>" +
+                                                "<p class='card-text'>€ " + risultato.Costo + "</p>" +
+                                                "<a href='Home/Dettagli/" + risultato.id + "' class='btn btn-secondary m-auto'>Dettaglio</a> " +
+                                                "</div>" +
+                                                "</div>" +
+                                                "</div>"
+
+                                            $('#risultati').append(card)
+
+                                            console.log(risultato)
+                                        }
+                                    },
+                                    error: function (e) {
+                                        console.log(e)
+                                    }
+
+                                })
+
+                            })
+
+                        })
+
+                    </script>
+
+                }

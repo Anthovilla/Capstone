@@ -3,29 +3,33 @@
     ViewBag.Title = "Carrello";
 }
 
-<h2>Carrello</h2>
 
 
 
-<h2>Carrello</h2>
 
-<table class="table table-success table-striped-columns">
-    <thead>
-        <tr>
+<h1 class="NomeDettaglio" >Carrello</h1>
 
-            <th scope="col">Nome</th>
-            <th scope="col">Costo</th>
+<div class="tableContainer" >
+    <table id="cardEvent" class="table ">
+        <thead>
+            <tr>
 
-        </tr>
-    </thead>
-    <tbody id="carrello">
-    </tbody>
+                <th scope="col">Nome</th>
+                <th scope="col">Costo</th>
 
-</table>
+            </tr>
+        </thead>
+        <tbody id="carrello">
 
-<p id="totaleCarrello">Totale: <span id="totale"></span></p>
-<button id="Concludi">Concludi ordine </button>
+        </tbody>
 
+    </table>
+</div>
+
+<dic class="ConcludiOrdine">
+    <button id="Concludi">Concludi ordine </button>
+    <p id="totaleCarrello">Totale: <span id="totale"></span></p>
+</dic>
 
 
 @section Scripts {
