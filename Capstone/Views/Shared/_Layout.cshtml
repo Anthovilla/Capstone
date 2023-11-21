@@ -28,14 +28,17 @@
 
                         <li>@Html.ActionLink("Eventi", "Index", "Evento", new { area = "" }, new { @class = "nav-link" })</li>
 
-
                         <li>@Html.ActionLink("Recensioni", "Index", "Recensioni", new { area = "" }, new { @class = "nav-link" })</li>
 
-                        <li>@Html.ActionLink("Prenotazioni", "Index", "Prenotazioni", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Commenti", "Index", "Commenti", new { area = "" }, new { @class = "nav-link" })</li>
 
 
                         @if (User.IsInRole("Admin"))
                         {
+
+                            <li>@Html.ActionLink("Prenotazioni", "Index", "Prenotazioni", new { area = "" }, new { @class = "nav-link" })</li>
+
+
                             <li>@Html.ActionLink("Utenti", "Index", "Utenti", new { area = "" }, new { @class = "nav-link" })</li>
                         }
                     </ul>
@@ -64,6 +67,10 @@
             @RenderBody()
             <hr />
         </div>
+
+
+    @*==========  Footer   =========*@
+
         <footer>
 
             <div class="mt-5 pt-2  footer">
