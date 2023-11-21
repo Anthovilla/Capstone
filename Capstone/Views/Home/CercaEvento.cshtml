@@ -7,13 +7,13 @@
 
 <div class="1">
     <div class="2">
-        <div  class="d-flex justify-content-center ContainerNomeDettaglio">
-            <h1 class="NomeDettaglio" >Cerca Evento</h1>
+        <div class="d-flex justify-content-center ContainerNomeDettaglio">
+            <h1 class="NomeDettaglio">Cerca Evento</h1>
         </div>
 
         <div class="form-group">
             <div class="d-flex my-2 my-lg-0 justify-content-center">
-                <input  class="form-control mr-sm-2 mx-2" type="text" placeholder="Inserisci il nome " id="nomeEvento" />
+                <input class="form-control mr-sm-2 mx-2" type="text" placeholder="Inserisci il nome " id="nomeEvento" />
                 <button class=" btn btn-outline-primary" id="cerca"> Cerca</button>
             </div>
             <div id="risultati">
@@ -31,7 +31,7 @@
 
 
 <section class="content ">
-    <div  id="cardEvent" class="left-content ">
+    <div id="cardEvent" class="left-content ">
         <div class="activities">
             <h1>Popular Events</h1>
             <div class="activity-container ">
@@ -84,68 +84,58 @@
 </section>
 
 
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script>
+
+        $(document).ready(function () {
 
 
+            $('#cerca').click(function () {
+                var nomeEvento = $('#nomeEvento').val()
 
 
+                $.ajax({
+                    type: "Post",
+                    url: "/Home/CercaEventoNome",
+                    data: { nome: nomeEvento },
+                    success: function (risultato) {
+                        $('#risultati').empty()
+
+                        if (risultato == 0)
+                            $("#not-found").removeClass("d-none")
+                        else {
 
 
-                @*<div>
-                        @Html.ActionLink("Back to List", "Index")
-                    </div>*@
+                            let card =
+                                "<div class='p-2 px-3' style='display: flex;justify-content: center;margin-top: 2rem;' >" +
+                                "<div id='cardEvent'  class='card' style='width: 45rem'>" +
+                                "<img src ='/Content/Imgs/" + risultato.img + "' class='card-img-top w-100' alt = '..'>" +
+                                "<div id='cardB' class='card-body' style='display: flex; flex-direction: column; align-items: center;'> " +
+                                "<h5 class='card-title'>" + risultato.Nome + "</h5> " +
+                                "<p class='card-text'>" + risultato.Descrizione + "</p>" +
+                                "<p class='card-text'>€ " + risultato.Costo + "</p>" +
+                                "<a href='Home/Dettagli/" + risultato.id + "' class='btn btn-secondary m-auto'>Dettaglio</a> " +
+                                "</div>" +
+                                "</div>" +
+                                "</div>"
 
-                @section Scripts {
-                    @*@Scripts.Render("~/bundles/jqueryval")*@
+                            $('#risultati').append(card)
 
-                    <script>
+                            console.log(risultato)
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e)
+                    }
 
-                        $(document).ready(function () {
+                })
 
+            })
 
-                            $('#cerca').click(function () {
-                                var nomeEvento = $('#nomeEvento').val()
+        })
 
+    </script>
 
-                                $.ajax({
-                                    type: "Post",
-                                    url: "/Home/CercaEventoNome",
-                                    data: { nome: nomeEvento },
-                                    success: function (risultato) {
-                                        $('#risultati').empty()
-
-                                        if (risultato == 0)
-                                            $("#not-found").removeClass("d-none")
-                                        else {
-
-
-                                            let card =
-                                                "<div class='p-2 px-3' style='display: flex;justify-content: center;margin-top: 2rem;' >" +
-                                                "<div id='cardEvent'  class='card' style='width: 45rem'>" +
-                                                "<img src ='/Content/Imgs/" + risultato.img + "' class='card-img-top w-100' alt = '..'>" +
-                                                "<div id='cardB' class='card-body' style='display: flex; flex-direction: column; align-items: center;'> " +
-                                                "<h5 class='card-title'>" + risultato.Nome + "</h5> " +
-                                                "<p class='card-text'>" + risultato.Descrizione + "</p>" +
-                                                "<p class='card-text'>€ " + risultato.Costo + "</p>" +
-                                                "<a href='Home/Dettagli/" + risultato.id + "' class='btn btn-secondary m-auto'>Dettaglio</a> " +
-                                                "</div>" +
-                                                "</div>" +
-                                                "</div>"
-
-                                            $('#risultati').append(card)
-
-                                            console.log(risultato)
-                                        }
-                                    },
-                                    error: function (e) {
-                                        console.log(e)
-                                    }
-
-                                })
-
-                            })
-
-                        })
-
-                    </script>
-
-                }
+}

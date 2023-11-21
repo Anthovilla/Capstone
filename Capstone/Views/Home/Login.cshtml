@@ -18,9 +18,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
-                @*<div class="col-lg-12 login-key">
-                        <i class="fa fa-key" aria-hidden="true"></i>
-                    </div>*@
+              
                 <div class="col-lg-12 login-title">
                     MOMENTS
                 </div>
@@ -30,13 +28,13 @@
                         <form>
                             <div class="form-group">
                                 <label class="form-control-label">USERNAME</label>
-                                @*<input type="text" class="form-control">*@
+                               
                                 @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">PASSWORD</label>
-                                @*<input type="password" class="form-control" i>*@
+                           
                                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                             </div>
@@ -44,13 +42,11 @@
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-6 login-btm login-text">
                                     <!-- Error Message -->
-                                </div>
-                                @*<div class="col-lg-6 login-btm login-button">*@
+                                </div>                  
 
                                 <div class="form-group">
                                     <div id="login" class="col-md-offset-2 col-md-10">
-
-                                        @*<button type="submit" class="btn btn-outline-primary">LOGIN</button>*@
+         
                                         <input type="submit" value="Login" class="btn btn-outline-primary" />
 
                                     </div>
@@ -60,7 +56,6 @@
                                     Non hai un account? @Html.ActionLink("Registrati", "Register")
                                 </div>
 
-                                @*</div>*@
                             </div>
                         </form>
                     </div>

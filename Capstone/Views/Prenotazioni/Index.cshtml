@@ -4,12 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h1 class="NomeDettaglio" >Prenotazioni</h1>
-
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-
+<h1 class="NomeDettaglio">Prenotazioni</h1>
 
 
 <div class="tableContainer">
@@ -29,9 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Partecipanti)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>*@
+
             <th></th>
         </tr>
 
@@ -50,27 +43,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => reserva.Partecipanti)
                 </td>
-
-
-                @*<td>
-
-            @if (reserva.Status == "In attesa")
-            {
-                <a href="@Url.Action("Index", new { id = reserva.Id, action = "confirm" })" class="btn btn-primary">Conferma</a>
-            }
-            else if (reserva.Status == "Confermata")
-            {
-                <a href="@Url.Action("Index", new { id = reserva.Id, action = "attesa" })" class="btn btn-warning"> In attesa</a>
-            }
-
-        </td>*@
-
-
-                @*<td>
-            @Html.DisplayFor(modelItem => reserva.Status)
-        </td>*@
-
-
 
                 <td id="BtnEliDetaEdit">
 
@@ -94,19 +66,6 @@
 
 
 
-    @section scripts{
+@section scripts{
 
-        <script>
-
-            $(document).ready(function () {
-
-
-
-
-            })
-
-        </script>
-
-
-
-    }
+}
