@@ -4,12 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h1 class="NomeDettaglio">Utenti</h1>
 
-<div>
-    <h4>Utenti</h4>
-    <hr />
-    <dl class="dl-horizontal">
+<div class="tableContainer">
+
+    <dl id="cardEvent" class="detailsUtente ">
         <dt>
             @Html.DisplayNameFor(model => model.Username)
         </dt>
@@ -18,13 +17,13 @@
             @Html.DisplayFor(model => model.Username)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+        @*<dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Nome)
@@ -66,9 +65,19 @@
             @Html.DisplayFor(model => model.Ruolo)
         </dd>
 
+        <div>
+            <a href="@Url.Action("Edit", new { id = Model.Id })"><i class="bi bi-pencil-square"></i></a>
+        </div>
     </dl>
+
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+<div>
+    <div class="TornaIndietro ">
+
+        @Html.ActionLink("Torna alla Lista", "Index", new { id = Model.Id }, new { @class = "btn btn-secondary m-auto torna" })
+        @*@Html.ActionLink("Dettaglio", "DettaglioEvento", new { id = item.Id }, new { @class = "btn btn-secondary m-auto" })*@
+    </div>
+</div>

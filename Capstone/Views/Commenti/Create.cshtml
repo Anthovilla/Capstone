@@ -4,52 +4,57 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h1 class="NomeDettaglio">Commenta</h1>
 
 
-@using (Html.BeginForm("Create", "Commenti", FormMethod.Post, new { id = "formContent", enctype = "multipart/form-data"})) 
+@using (Html.BeginForm("Create", "Commenti", FormMethod.Post, new { id = "formContent", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Commenti</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-   
 
-    <div class="form-group">
-        <label for="Text" class="label-form">@Html.Raw("<strong>Commenta</strong><span class='star'> *</span>")</label>
-        @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
-    </div>
+    <div class="tableContainer">
 
-        <div class="form-group">
-            <label for="Nome" class="label-form"><strong>Select a Evento</strong><span class="star"> *</span></label>
-            <select name="FKEventi" class="form-control">
+        <div id="cardEvent" class="bodyCrea">
 
-                @foreach (var evento in ViewBag.EventoList as SelectList)
-                {
-                    <option value="@evento.Value">@evento.Text</option>
-                }
-            </select>
-            @Html.ValidationMessageFor(model => model.FKEventi, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+            <div class="form-group">
+                <label for="Text" class="label-form">@Html.Raw("<strong>Commenta</strong><span class='star'> </span>")</label>
+                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="Nome" class="label-form"><strong>Select a Evento</strong><span class="star"> </span></label>
+                <select name="FKEventi" class="form-control">
+
+                    @foreach (var evento in ViewBag.EventoList as SelectList)
+                    {
+                        <option value="@evento.Value">@evento.Text</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.FKEventi, "", new { @class = "text-danger" })
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 create">
+                    <input type="submit" value="Create" id="cerca" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
 
         </div>
 
+        }
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
-    </div>
-</div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

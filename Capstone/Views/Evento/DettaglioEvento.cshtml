@@ -17,7 +17,7 @@
 <div class="p-3 px-5 table-container">
     <div id="cardEvent" class="row align-items-center rounded colorDettagli">
         <div class="col-12 col-md-4">
-            <img src="~/Content/Imgs/@Model.Foto" class="w-100" />
+            <img src="~/Content/Imgs/@Model.Foto" class="w-100 imgHeight"/>
         </div>
 
         <div class="col-12 col-md-8 ml-5 fs-5">
@@ -38,9 +38,9 @@
                     <div>
                         <div class="fw-bold">
                             <h4>   Nome </h4>
-</div>
-                        <div class="TextDettagli" >
-                            @Html.DisplayFor(model => model.Nome)
+                        </div>
+                        <div class="TextDettagli">
+                            <p id="Nome">@Model.Nome</p>
                         </div>
                     </div>
 
@@ -79,9 +79,10 @@
                     <div>
                         <div class="fw-bold">
                             <h4> @Html.DisplayNameFor(model => model.Costo)</h4>
-</div>
-                        <div class="TextDettagli" >
-                            @Html.DisplayFor(model => model.Costo)
+                        </div>
+                        <div class="TextDettagli">
+                            <p id="Costo">@Model.Costo</p>
+
                         </div>
                     </div>
 
@@ -178,8 +179,9 @@
                     carrello.push(prodotto)
                     sessionStorage.setItem("Carrello", JSON.stringify(carrello));
 
-                    window.location.href = '../Home/Carrello';
+                    window.location.href = '../../Home/Carrello';
 
+                    
                     console.log(JSON.parse(sessionStorage.getItem("Carrello")))
                 })
 

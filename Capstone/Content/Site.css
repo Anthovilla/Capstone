@@ -13,9 +13,6 @@ textarea {
 }
 
 
-/*img {
-    width: 15rem;
-}*/
 
 #bodyColor {
     background-color: #d6deff;
@@ -43,11 +40,10 @@ textarea {
     border-bottom: 6px solid #fa00d9;
 }
 
-/*.cursive {
-    font-size: 3rem;
-    font-family: cursive;
-    color: #ffffff;
-}*/
+.imgHeight {
+    height: 18rem;
+    object-fit: cover;
+}
 
 #nomeEvento {
     max-width: 280px;
@@ -121,6 +117,19 @@ textarea {
     color: white;
 }
 
+/*====== 'Create' di Tutte lege Pg ======*/
+
+.bodyCrea {
+    padding: 14px;
+}
+
+.create {
+    display: flex;
+    justify-content: center;
+}
+
+
+
 /*Card Dettaglio*/
 .ContainerTextDettagli {
     display: flex;
@@ -140,9 +149,6 @@ textarea {
 
 
 
-
-
-
 /*Pg Evento*/
 .creaEvento {
     color: red;
@@ -152,8 +158,13 @@ textarea {
     color: red;
 }
 
+#cardEvent {
+    background-color: #0000008c;
+    color: white;
+}
+
 #cardEvent:hover {
-   
+    
     box-shadow: -5px 6px 20px 0px rgb(0 209 255), 2px -3px 20px 0px rgb(250 0 217);
 }
 
@@ -390,14 +401,40 @@ td{
     color: #fff;
 }
 
+/*========== PG Utenti ==========*/
+
+/*details*/
+.detailsUtente {
+    width: 50%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0000008c;
+}
+
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+    border-bottom: 2px solid #00d1ff;
+}
+
+.TornaIndietro {
+    display: flex;
+    justify-content: center;
+}
 
 
-
-
-
-
-
-/*PG Login*/
+#BtnEliDetaEdit {
+    display: flex;
+    justify-content: space-around;
+    border-bottom-width: 0px;
+}
+/*.torna{
+    text-decoration:none;
+    color:white;
+}*/
+/*========= PG Login ===========*/
 .login-box {
     margin-top: 75px;
     height: auto;
