@@ -126,26 +126,6 @@ textarea {
 }
 
 
-
-/*Card Dettaglio*/
-.ContainerTextDettagli {
-    display: flex;
-    justify-content: space-around;
-    
-}
-
-.TextDettagli {
-    border-bottom: 1px solid #00f7f7;
-    font-size: 17px;
-}
-
-.colorDettagli {
-    background-color: #0000008c;
-    color: white;
-}
-
-
-
 /*Pg Evento*/
 .creaEvento {
     color: #00d1ff;
@@ -176,15 +156,47 @@ textarea {
 }
 
 
+/*Card Dettaglio*/
+.ContainerTextDettagli {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.TextDettagli {
+    border-bottom: 1px solid #00f7f7;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.colorDettagli {
+    background-color: #0000008c;
+    color: white;
+}
+
+
 
 /*PG DettaglioEvento*/
 #ContainerNomeDettaglio {
     margin: 12px 38px;
 }
 
+.padding {
+    padding: 13px 0px 0px 0px;
+}
+
+/*.titoloDettagli {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}*/
+
+.fw-bold h4 {
+    margin: 0px;
+}
 
 .NomeDettaglio {
-    width: auto;  
+    width: auto;
     display: flex;
     justify-content: center;
     border-radius: 32px;
