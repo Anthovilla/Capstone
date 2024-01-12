@@ -262,6 +262,52 @@ textarea {
 }
 
 
+/*===== Recensioni Stelle ======*/
+#rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+    font-size: 2rem;
+    color: #00d1ff;
+    margin-bottom: 7px;
+}
+
+#rating .star {
+    cursor: pointer;
+}
+
+#rating .star.active {
+    opacity: 0;
+    animation: animate .5s calc(var(--i)* .1s) ease-in-out forwards;
+}
+
+@keyframes animate {
+    0% {
+        opacity:0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform:scale(1.2);
+    }
+    100% {
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+#rating .star:hover {
+    transform:scale(1.1);
+
+}
+
+.feedback {
+    font-size: 22px;
+    color: #fa00d9;
+}
+
+
 /*======table======*/
 
 .tableContainer {
@@ -448,7 +494,7 @@ dd {
     font-size: 80px;
     line-height: 100px;
     background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
-    -webkit-background-clip: text;
+    /*-webkit-background-clip: text;*/
     -webkit-text-fill-color: transparent;
 }
 

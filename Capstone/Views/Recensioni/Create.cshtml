@@ -17,14 +17,28 @@
 
         <div id="cardEvent" class="bodyCrea">
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="">
                     @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
                 </div>
-            </div>
+            </div>*@
+
+
+            <form action="#" >
+
+                <div id="rating">
+                    <input type="number" name="rating" hidden />
+                    <i class="bi bi-star star" style="--i:0;"></i>
+                    <i class="bi bi-star star" style="--i:1;"></i>
+                    <i class="bi bi-star star" style="--i:2;"></i>
+                    <i class="bi bi-star star" style="--i:3;"></i>
+                    <i class="bi bi-star star" style="--i:4;"></i>
+                </div>
+
+            </form>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -53,6 +67,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
 }
@@ -65,4 +81,40 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @*Funzionamento delle Stelle*@
+
+    <script>
+        const allStar = document.querySelectorAll('#rating .star')
+        const ratingValue = document.querySelector('#rating input')
+
+        allStar.forEach((item, idx) => {
+            item.addEventListener('click', function () {
+                let click = 0
+                ratingValue.value = idx + 1
+                console.log(ratingValue.value)
+
+
+                allStar.forEach(i => {
+                    i.classList.replace('bi-star-fill', 'bi-star')
+                    i.classList.remove('active')
+                })
+
+
+                for (let i = 0; i < allStar.length; i++) {
+                    if (i <= idx) {
+                        allStar[i].classList.replace('bi-star', 'bi-star-fill')
+                        allStar[i].classList.add('active')
+                    } else {
+                        allStar[i].style.setProperty('--i', click)
+                        click++
+                    }
+                }
+            })
+        })
+            
+
+    </script>
+
+
 }
